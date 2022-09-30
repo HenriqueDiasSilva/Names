@@ -115,27 +115,27 @@ function loadFivePersonAllYearsBrazil(names){
     names.forEach(name => {
         if(name.place == 'Brasil'){
 
-            if(name.quantPeople > qtPeopleBr[0] & name.place == 'Brasil' | qtPeopleBr[0] == null){
+            if(name.quantPeople > qtPeopleBr[0] | qtPeopleBr[0] == null){
                 qtPeopleBr[0] = name.quantPeople
                 nomesBr[0] = name.name
             }
-            else if(name.quantPeople > qtPeopleBr[1] & name.place == 'Brasil' | qtPeopleBr[1] == null){
+            else if(name.quantPeople > qtPeopleBr[1] | qtPeopleBr[1] == null){
                 qtPeopleBr[1] = name.quantPeople
                 nomesBr[1] = name.name
             }
-            else if(name.quantPeople > qtPeopleBr[2] & name.place == 'Brasil' | qtPeopleBr[2] == null){
+            else if(name.quantPeople > qtPeopleBr[2] | qtPeopleBr[2] == null){
                 qtPeopleBr[2] = name.quantPeople
                 nomesBr[2] = name.name
             }
-            else if(name.quantPeople > qtPeopleBr[3] & name.place == 'Brasil' | qtPeopleBr[3] == null){
+            else if(name.quantPeople > qtPeopleBr[3] | qtPeopleBr[3] == null){
                 qtPeopleBr[3] = name.quantPeople
                 nomesBr[3] = name.name
             }
-            else if(name.quantPeople > qtPeopleBr[4] & name.place == 'Brasil' | qtPeopleBr[4] == null){
+            else if(name.quantPeople > qtPeopleBr[4] | qtPeopleBr[4] == null){
                 qtPeopleBr[4] = name.quantPeople
                 nomesBr[4] = name.name
             }
-            
+
         }
         
     });
