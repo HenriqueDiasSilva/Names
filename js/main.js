@@ -6,9 +6,6 @@ async function startData() {
 
     loadTableAllYears(names)
     loadTableYear2000(names)
-
-    console.log(loadFivePersonAllYearsBrazil(names))
-    console.log(loadFivePersonAllYearsTocantins(names))
     
 
 }
@@ -79,6 +76,66 @@ function loadTableAllYears(names) {
     app.appendChild(table)
 
     
+}
+
+function loadTableYear2000(names){
+    let app = document.getElementById("app")
+    let table = document.createElement("table")
+
+    let row_col = document.createElement("tr")
+
+    let col_rankingBr = document.createElement("th")
+    let col_name = document.createElement("th")
+    let col_freqBr = document.createElement("th")
+    let col_rankingTo = document.createElement("th")
+    let col_freqTo = document.createElement("th")
+
+    
+    col_rankingBr.innerText = "Ranking Brasil"
+    col_name.innerText = "Nome"
+    col_freqBr.innerText = "Frequência Brasil"
+    col_rankingTo.innerText = "Ranking Tocantins"
+    col_freqTo.innerText = "Frequência Tocantins"
+
+    row_col.appendChild(col_rankingBr)
+    row_col.appendChild(col_name)
+    row_col.appendChild(col_freqBr)
+    row_col.appendChild(col_rankingTo)
+    row_col.appendChild(col_freqTo)
+
+    table.className = 'm-5'
+
+    table.appendChild(row_col)
+
+    nomesBr = loadFivePersonYear2000Brazil(names)
+    nomesTo = loadFivePersonYear2000Tocantins(names)
+    
+    for (let i = 0; i < 5; i++){
+        let row = document.createElement("tr")
+        let td_rankingBr =  document.createElement("td")
+        let td_name =  document.createElement("td")
+        let td_freqBr =  document.createElement("td")
+        let td_rankingTo =  document.createElement("td")
+        let td_freqTo =  document.createElement("td")
+
+        td_rankingBr.innerText = i+1
+        td_name.innerText = nomesBr[0][i]
+        td_freqBr.innerText = nomesBr[1][i]
+        td_rankingTo.innerText = i+1
+        td_freqTo.innerText = nomesTo[1][i]
+
+        row.appendChild(td_rankingBr)
+        row.appendChild(td_name)
+        row.appendChild(td_freqBr)
+        row.appendChild(td_rankingTo)
+        row.appendChild(td_freqTo)
+    
+
+        table.appendChild(row)
+    } 
+    
+
+    app.appendChild(table)
 }
 
 function loadFivePersonAllYearsTocantins(names){
@@ -220,66 +277,5 @@ function loadFivePersonYear2000Brazil(names){
 
     return [nomesBr, qtPeopleBr]
 }
-
-function loadTableYear2000(names){
-    let app = document.getElementById("app")
-    let table = document.createElement("table")
-
-    let row_col = document.createElement("tr")
-
-    let col_rankingBr = document.createElement("th")
-    let col_name = document.createElement("th")
-    let col_freqBr = document.createElement("th")
-    let col_rankingTo = document.createElement("th")
-    let col_freqTo = document.createElement("th")
-
-    
-    col_rankingBr.innerText = "Ranking Brasil"
-    col_name.innerText = "Nome"
-    col_freqBr.innerText = "Frequência Brasil"
-    col_rankingTo.innerText = "Ranking Tocantins"
-    col_freqTo.innerText = "Frequência Tocantins"
-
-    row_col.appendChild(col_rankingBr)
-    row_col.appendChild(col_name)
-    row_col.appendChild(col_freqBr)
-    row_col.appendChild(col_rankingTo)
-    row_col.appendChild(col_freqTo)
-
-    table.className = 'm-5'
-
-    table.appendChild(row_col)
-
-    nomesBr = loadFivePersonYear2000Brazil(names)
-    nomesTo = loadFivePersonYear2000Tocantins(names)
-    
-    for (let i = 0; i < 5; i++){
-        let row = document.createElement("tr")
-        let td_rankingBr =  document.createElement("td")
-        let td_name =  document.createElement("td")
-        let td_freqBr =  document.createElement("td")
-        let td_rankingTo =  document.createElement("td")
-        let td_freqTo =  document.createElement("td")
-
-        td_rankingBr.innerText = i+1
-        td_name.innerText = nomesBr[0][i]
-        td_freqBr.innerText = nomesBr[1][i]
-        td_rankingTo.innerText = i+1
-        td_freqTo.innerText = nomesTo[1][i]
-
-        row.appendChild(td_rankingBr)
-        row.appendChild(td_name)
-        row.appendChild(td_freqBr)
-        row.appendChild(td_rankingTo)
-        row.appendChild(td_freqTo)
-    
-
-        table.appendChild(row)
-    } 
-    
-
-    app.appendChild(table)
-}
-
 
 document.addEventListener("DOMContentLoaded", startData)
